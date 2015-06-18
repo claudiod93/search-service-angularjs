@@ -94,27 +94,35 @@
   
     <!-- inicio head -->
     <section id="micuenta" class="micuenta">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Bienvenido!</h2>
+        <div class="container text-center">
+            <div class="row" class="col-lg-12 caja">
+				 
 
-                    <button type="button" ng-click="guardar();">guardar</button>
-
-                    <div ng-repeat="item in listado" class="caja">
-                        <div class="titulo">
+            <div class="panel-heading">
+                             <h2>Bienvenido!</h2>
+                        </div>
+			
+			
+			<div ng-repeat="item in listado" class="col-lg-12 caja">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading titulo">
                             {{item.titulo}}
                         </div>
-                        <br />
-                        <div class="contenido">{{item.contenido}}</div>
-                        <div>
-                            <button type="button" ng-click="marcar(item);">Marcar Favorito</button>
+                        <div class="panel-body contenido">
+                            {{item.contenido}}
+                        </div> 
+                         <div class="panel-footer" >
+                            <button class="btn btn-dark" type="button" ng-click="marcar(item);">Marcar Favorito</button>
                         </div>
                     </div>
+                </div>
+			
+                <div class="col-lg-12 text-center">
+                 
+			
+			
 
-
-                    <p class="lead"><a target="_blank" href=""></a>.</p>
-                    <!--<header class="jumbotron hero-spacer">
+            <header class="jumbotron hero-spacer">
                         <h1>Tienes Mensajes!</h1>
                         <p>Proveedor :<br>
                          <p>Alonso Dominguez <br>
@@ -169,8 +177,8 @@
                            Mas informacion pincha <a href="http://www.climacentro.cl/?gclid=CNSB39D9m8YCFZWRHwodpyQABA">aqui!</a>
                         </div>
                     </div>
-                    <!-- /.col-lg-4 --><!--
-                </div>-->
+                    
+                </div>
 		
                 </div>
 			
@@ -288,7 +296,7 @@
 								<td> {{item.contenido}} </td>
 								<!-- <td> <a href="javascript:void(0);" class="btn btn_editar" ng-click="modificar(auto.marca)"> Editar </a> </td>-->
 
-								<td> <button class=" btn_eliminar" ng-click="eliminar($index)"> Eliminar </button> </td>
+								<td> <button class="btn btn-dark btn_eliminar"  ng-click="eliminar($index)"> Eliminar </button> </td>
 							</tr>
 
 						</tbody>

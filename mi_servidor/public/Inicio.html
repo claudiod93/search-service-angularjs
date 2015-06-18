@@ -31,19 +31,27 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>Inicio Secion </h1><br> 
+            <h1>Inicio Sesion </h1><br> 
             <h3>Ingresa los datos</h3><br> 
 			<input placeholder="Usuario">   </input>
 			<br>
 			<input class="Password" placeholder="Password">   </input>
 			<br>
+			
+			<form name="formulario">
 			<label>
-                   <input name="remember" type="checkbox" value="Remember Me">Recordar
+                   <input type="checkbox" value="1" name="pepe" onclick="javascript:validar(this);">Proveedor
              </label>
 		     <br>
-							  
-            <a href="usuario_consumidor.html" class="btn btn-dark btn-lg">Login</a>
-			  <a href="usuario_proveedor.html" class="btn btn-dark btn-lg">Login</a>
+			
+			 
+
+
+<a href="usuario_consumidor.html" class="btn btn-dark btn-lg" id="btnlogin">Login</a>
+
+</form>
+				
+       
         </div>
     </header>
 
@@ -53,7 +61,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="">Death to the Stock Photo</a>.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -129,6 +137,20 @@
             }
         });
     });
+	
+	
+	// JS 
+ 
+function validar(obj){
+	var d = document.formulario;
+	if(obj.checked==true){
+		document.getElementById("btnlogin").href = "usuario_proveedor.html";
+	
+	}else{
+		
+		d.boton.href="usuario_consumidor.html";
+	}
+	}
     </script>
 
 </body>
