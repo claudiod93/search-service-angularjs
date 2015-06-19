@@ -1,0 +1,390 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Networking</title>
+    <script src="angular.min.js"></script>
+    <link href="css/ng-img-crop.css">
+    <script src="js/ng-img-crop.js"></script>
+    <script src="controller/ConsumidorController.js"></script>
+    <script src="service/ConsumidorService.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <style>
+        .avatar {
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+
+            width: 100px;
+            height: 100px;
+        }
+
+        .cropArea {
+            background: #E4E4E4;
+            overflow: hidden;
+            width:100px;
+            height:150px;
+        }
+
+        .cropArea canvas {
+            margin: initial !important;
+        }
+        
+        .caja {
+            border: 1px solid #cccccc;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .titulo {
+            font-size: 16px;
+            color: #204d74;
+            text-align: left;
+            border-bottom: 1px solid #c0c0c0;
+
+        }
+
+        .contenido {
+            font-size: 12px;
+            text-align: justify;
+        }
+
+    </style>
+</head>
+
+<body ng-app="consumidorModule" ng-controller="consumidorController">
+
+
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
+            </li>          
+            <li>
+                <a href="#micuenta" onclick = $("#menu-close").click(); >Inicio</a>
+            </li>
+			<li>
+                <a href="#portfolio" onclick = $("#menu-close").click(); >Mi perfil</a>
+            </li>
+            <li>
+                <a href="#services" onclick = $("#menu-close").click(); >Mis favoritos</a>
+            </li>
+            
+            <li>
+                <a href="Inicio.html" onclick = $("#menu-close").click(); >Logout</a>
+            </li>
+        </ul>
+    </nav>
+ <!-- Navigation FIN -->
+  
+
+  
+    <!-- inicio head -->
+    <section id="micuenta" class="micuenta">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Bienvenido!</h2>
+
+                    <button type="button" ng-click="guardar();">guardar</button>
+
+                    <div ng-repeat="item in listado" class="caja">
+                        <div class="titulo">
+                            {{item.titulo}}
+                        </div>
+                        <br />
+                        <div class="contenido">{{item.contenido}}</div>
+                        <div>
+                            <button type="button" ng-click="marcar(item);">Marcar Favorito</button>
+                        </div>
+                    </div>
+
+
+                    <p class="lead"><a target="_blank" href=""></a>.</p>
+                    <!--<header class="jumbotron hero-spacer">
+                        <h1>Tienes Mensajes!</h1>
+                        <p>Proveedor :<br>
+                         <p>Alonso Dominguez <br>
+                          <p>Se quiere contactar (a 10 metros)<br></p>
+                        <p><a class="btn btn-primary btn-large">Contestar!</a>
+                        </p>
+                    </header>
+					
+				<div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Oferta Repuestos 
+                        </div>
+                        <div class="panel-body">
+                            <p>En AutoPlanet encontraras todo lo necesario para la mantencion, reparacion, embellecimiento y mejoramiento de tu vehiculo; 
+							ayudandote a ahorrar tiempo, dinero y mejorar la calidad de tu trabajo.
+							Tenemos una Red de Tiendas cercana a donde vives y/o trabajas, brindandote el mejor servicio con una asesoria experta 
+								y confiable.</p>
+                        </div> 
+                        <div class="panel-footer">
+                              Mas informacion pincha <a href="http://www.autoplanet.cl/?utm_source=google&utm_medium=cpc&utm_content=texto&utm_campaign=auto_planet">aqui!</a>
+                        </div>
+                    </div>
+                </div>	
+					<div class="col-lg-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Reparaciones de Techo en Invierno!
+                        </div>
+                        <div class="panel-body">
+                            <p>La lluvia ya no es impedimento
+							En Tejal tenemos la Tecnologia y la experiencia que nos permite avanzar nuestros proyecto sin contratiempos por la lluvia.
+							Contamos con mas de 2.000.000.- de m2 de instalaciones de techumbre en distintos tipos de cubierta como: 
+							Contamos con mas de 2.000.000.- de m2</p>
+                        </div>
+                        <div class="panel-footer">
+                           Mas informacion pincha <a href="http://www.tejal.cl/">aqui!</a>
+                        </div>
+                    </div>
+                </div>
+					<div class="col-lg-4">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            CALEFACCION CENTRAL
+                        </div>
+                        <div class="panel-body">
+                            <p>Para poder disfrutar de una calefaccion central, no tienes que hacer grandes obras. En pocos dias, un equipo de 
+							tecnicos especialistas, instalara la caldera a gas, petroleo, o lena y montara los radiadores en los lugares mas 
+							idoneos de tu hogar. Tambien existe el piso radiante que permite aun mas eficiencia en la calefaccion</p>
+                        </div>
+                        <div class="panel-footer">
+                           Mas informacion pincha <a href="http://www.climacentro.cl/?gclid=CNSB39D9m8YCFZWRHwodpyQABA">aqui!</a>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-4 --><!--
+                </div>-->
+		
+                </div>
+			
+		
+            </div>
+        </div>
+  
+    </section>
+	  <!-- inicio head FIN-->
+	
+	
+	
+	 <!-- Mi perfil -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Mi perfil</h2>
+                    <hr class="small">
+                   
+				   
+				   
+				   <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Mis datos Personales
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+							<div class="col-lg-3" ></div>
+                                <div class="col-lg-6" >
+                                    <form role="form" >
+                                        <div class="form-group">
+                                    	 <img src="img/foto.jpeg" class="avatar">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input class="form-control">    
+                                        </div>
+										<div class="form-group">
+                                            <label>Apellido</label>
+                                            <input class="form-control"> 
+                                        </div>
+										<div class="form-group">
+                                            <label>Direccion</label>
+                                            <input class="form-control"> 
+                                        </div>
+										<div class="form-group">
+                                            <label>Ciudad</label>
+                                            <select class="form-control">
+                                                <option>Santiago</option>
+                                                <option>Valparaiso</option>
+                                                <option>Vi&ntilde;a del Mar</option>
+                                                <option>Concepcion</option>
+                                                <option>Arica</option>
+                                            </select>
+                                        </div>
+										<div class="form-group">
+                                            <label>Telefono</label>
+                                            <input class="form-control">
+                                        </div>
+										<div class="form-group">
+                                            <label>Foto perfil</label>
+                                                <div>Select an image file: <input type="file" id="fileInput" /></div>
+                                                <div class="cropArea">
+                                                    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+                                                </div>
+                                                <div>Cropped Image:</div>
+                                                <div><img ng-src="{{myCroppedImage}}" /></div>
+                                        </div>
+					              
+                                    </form>
+                                </div>
+                         
+                            </div>
+        
+                        </div>
+         
+                    </div>
+				    
+                    <a href="#" class="btn btn-dark">subir</a>
+					<a href="#" class="btn btn-dark">Guardar</a>
+                </div>
+           
+            </div>
+           
+        </div>
+    
+    </section>
+	 <!-- Mi perfil FIN-->
+	
+	
+	
+ <!-- Mis Favoritos -->
+    <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Mis Favoritos</h2>
+                    <hr class="small">
+                    <div class="row">
+                     <!-- Tabla de Usuarios -->
+					<table class="table">
+						<thead>
+							<tr>
+								<th> id </th>
+								<th> Titulo </th>
+								<th> Contenido </th>
+								<th> </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in listadoFavoritos">
+								<td> {{item.id}} </td>
+								<td> {{item.titulo}} </td>
+								<td> {{item.contenido}} </td>
+								<!-- <td> <a href="javascript:void(0);" class="btn btn_editar" ng-click="modificar(auto.marca)"> Editar </a> </td>-->
+
+								<td> <button class=" btn_eliminar" ng-click="eliminar($index)"> Eliminar </button> </td>
+							</tr>
+
+						</tbody>
+					</table>
+                      <!-- Tabla de Usuarios FIV-->           
+                    </div>
+                </div>              
+            </div>     
+        </div>   
+    </section>
+ <!-- Mis Favoritos FIN-->
+ 
+ 
+ 
+
+    <!-- Mapa -->
+    <section id="contact" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+        <br />
+        <small>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+        </small>
+        </iframe>
+    </section>
+	 <!-- Mapa FIN -->
+
+	 
+	 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Networking</strong>
+                    </h4>
+                    <p>Contactanos<br></p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (22) 222 22 22</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="https://mail.google.com">name@example.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; networking 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer FIN -->
+	
+	
+	
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	    <!-- Js de Angular -->
+		<!-- FIN Js de Angular -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+	
+</body>
+
+</html>
