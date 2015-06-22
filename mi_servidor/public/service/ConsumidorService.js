@@ -11,13 +11,39 @@ function consumidorService(){
     listaTrabajos = [
         {
             id:1,
-            titulo: "titulo 1",
-            contenido: "contenido 1"
+            titulo: "Juan Fuentes",
+            profesion: "Gásfiter",
+            contenido: "Gásfiter con mucha experiencia en drifería y figas de agua",
+            imagen: "img/gasfiter.jpg",
+            like: "32",
+            dontlike: "11"
         },
         {
             id:2,
-            titulo: "titulo 2",
-            contenido: "contenido 2 fdgfgd"
+            titulo: "Danitza zamora",
+            profesion: "Enferma",
+            contenido: "Enferma a domicilio con disponibilidad en las tardes, solo sector oriente",
+            imagen: "img/enfermera.jpg",
+            like: "23",
+            dontlike: "20"
+        },
+        {
+            id:3,
+            titulo: "Hector Pinto",
+            profesion: "Mecanico",
+            contenido: "Mecanico especializado en trabajos electricos sobre el vehiculo",
+            imagen: "img/mecanico.jpg",
+            like: "89",
+            dontlike: "54"
+        },
+        {
+            id:4,
+            titulo: "Diego Maradona",
+            profesion: "Futolista",
+            contenido: "Clases de fubtol, solo para argentinos che",
+            imagen: "img/dmaradona.jpg",
+            like: "11",
+            dontlike: "12"
         }
     ];
 

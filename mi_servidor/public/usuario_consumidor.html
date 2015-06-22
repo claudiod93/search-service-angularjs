@@ -89,9 +89,8 @@
         </ul>
     </nav>
  <!-- Navigation FIN -->
-  
 
-  
+
     <!-- inicio head -->
     <section id="micuenta" class="micuenta">
         <div class="container text-center">
@@ -105,14 +104,23 @@
 			
 			<div ng-repeat="item in listado" class="col-lg-12 caja">
                     <div class="panel panel-primary">
+                        <div class="form-group">
+                            <img src="{{item.imagen}}" class="avatar" align="left">
+                        </div>
                         <div class="panel-heading titulo">
-                            {{item.titulo}}
+                            {{item.titulo}} - {{item.profesion}}
                         </div>
                         <div class="panel-body contenido">
                             {{item.contenido}}
-                        </div> 
+                        </div>
                          <div class="panel-footer" >
+                             <button class="glyphicon glyphicon-thumbs-up"></button>
+                             <label>{{item.like}}</label>
+                             <button class="glyphicon glyphicon-thumbs-down"></button>
+                             <label>{{item.dontlike}}</label>
                             <button class="btn btn-dark" type="button" ng-click="marcar(item);">Marcar Favorito</button>
+
+
                         </div>
                     </div>
                 </div>

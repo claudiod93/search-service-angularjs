@@ -12,6 +12,29 @@
     <link href="css/stylish-portfolio.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <style>
+        .avatar {
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+
+            width: 100px;
+            height: 100px;
+        }
+
+        .cropArea {
+            background: #E4E4E4;
+            overflow: hidden;
+            width:100px;
+            height:150px;
+        }
+
+        .cropArea canvas {
+            margin: initial !important;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -51,15 +74,18 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Bienvenido!</h2>
-                    <p class="lead"><a target="_blank" href=""></a>.</p>
-						
-					<header class="jumbotron hero-spacer">
+                    <h3>Publicar</h3>
+                    <input class="form-control">
+                    <br/>
+                    <button class="btn btn-primary btn-large">Publicar</button>
+                    <br/>
+                    <header class="jumbotron hero-spacer">
             <h1>Tienes Mensajes!</h1>
             <p>Consumidor :<br>
 			 <p>Alonso Dominguez <br>
 			  <p>Necesita tus servicios (a 20metros)<br></p>
-            <p><a class="btn btn-primary btn-large">Contactar!</a>
-            <a class="btn btn-primary btn-large">Rechazar pedido</a>
+            <p><a class="btn btn-primary btn-large" onclick="alert('Contactado')">Contactar!</a>
+            <a class="btn btn-primary btn-large" onclick="alert('Rechazado')">Rechazar pedido</a>
             </p>
         </header>	
 					
@@ -143,16 +169,23 @@
                                 <div class="col-lg-6" >
                                     <form role="form" >
                                         <div class="form-group">
+                                            <img src="img/mecanico.jpg" class="avatar">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control">    
+                                            <input class="form-control" value="Hector">
                                         </div>
 										<div class="form-group">
                                             <label>Apellido</label>
-                                            <input class="form-control"> 
+                                            <input class="form-control" value="Pinto">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Profesión</label>
+                                            <input class="form-control" value="Mecanico">
                                         </div>
 										<div class="form-group">
                                             <label>Direccion</label>
-                                            <input class="form-control"> 
+                                            <input class="form-control" value="Calas 8675">
                                         </div>
 										<div class="form-group">
                                             <label>Ciudad</label>
@@ -166,7 +199,7 @@
                                         </div>
 										<div class="form-group">
                                             <label>Telefono</label>
-                                            <input class="form-control">
+                                            <input class="form-control" value="87654">
                                         </div>
 										<div class="form-group">
                                             <label>Foto perfil</label>
@@ -213,8 +246,8 @@
                                             </select>
                                         </div>
 										<div class="form-group">
-                                            <label>Direccion de Atencion</label>
-                                            <input class="form-control">
+                                            <label>Direccion de Atención</label>
+                                            <input class="form-control" value="Los sauces 9876">
                                         </div>
 										
 					              
